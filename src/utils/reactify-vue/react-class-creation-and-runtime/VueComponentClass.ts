@@ -3,6 +3,16 @@ import * as React from 'react';
 import {camelCase} from 'change-case';
 
 const handleStateSet = (stateObject, key, value, vueComponent, self, deleteMode) => {
+    if (self.state === null) {
+        self.queuedStateChanges = self.queuedStateChanges || [];
+        
+        self.queuedStateChanges.push(
+            {stateObject, key, value, vueComponent, self, deleteMode}
+        );
+
+        return;
+    }
+
     const stateKey = Object.keys(self.state).reduce((macthingStateKey, nextKey) => {
         if (self.state[nextKey] === stateObject) {
             return nextKey;

@@ -41,7 +41,11 @@ export const generateReactClass = <TProps>(instantiatedComponents, vueComponent,
 
             if (this.props.__onInit) {
                 this.props.__onInit(this);
-            }            
+            }
+
+            if (this.queuedStateChanges) {
+                
+            }
 
             return state;
         },

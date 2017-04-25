@@ -150,7 +150,9 @@ export const applyPropOverridesToTopLevelElement = (reactElement: React.ReactEle
 
         self.nextTickCallbacks.forEach(callback => callback.apply(this.vueComponent, []));
         self.nextTickCallbacks = [];
-        self.hasUnrenderedStateChanges = false;        
+        self.hasUnrenderedStateChanges = false;
+
+        (e as any).__vue__ = self.vueComponent;
     };
 
     const elementWithPropOverrides = {...reactElement, props: { ...reactElement.props}, tag: tag, ref: refFunc};

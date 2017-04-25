@@ -1,3 +1,4 @@
+import {HomePage} from './components/pages/HomePage';
 import {ContentBlockPage} from './components/pages/ContentBlockPage';
 import {CardsPage} from './components/pages/CardsPage';
 import {ListsPage} from './components/pages/ListsPage';
@@ -47,6 +48,9 @@ import {TabbarTab3} from './components/nested-routes/tabs/TabbarTab3';
 import {TabbarTab3AlternateContent} from './components/nested-routes/tabs/TabbarTab3AlternateContent';
 
 export const routes = [{
+    path: '/home/',
+    component: HomePage
+}, {
     path: '/content-block/',
     component: ContentBlockPage
 }, {

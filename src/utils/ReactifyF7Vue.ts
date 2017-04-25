@@ -64,7 +64,13 @@ export const reactifyF7Vue = <TProps>(args: IReactifyF7VueArgs) => {
                 get: () => this.framework7,
                 enumerable: true,
                 configurable: true
-            });            
+            });
+
+            Object.defineProperty(args.component, '_framework7Router', {
+                get: () => framework7AppContext.getRouter(),
+                enumerable: true,
+                configurable: true
+            });        
 
             this.componentId = nextComponentId++;
 
